@@ -94,8 +94,7 @@
        );
        return;
      }
-
-     // Submit form data
+// Submit form data
      console.log(formData);
    };
 
@@ -107,26 +106,25 @@
              Customs Information Form
            </h1>
            <div
-             className="   "
+             className=""
              style={{
                backgroundImage: `url(${border})`,
-               backgroundSize: "cover", // Adjust as needed
-               backgroundPosition: "center", // Adjust as needed
-               height: "80vh", // Adjust as needed
-               width: "100%", // Adjust as needed
+               backgroundSize: "cover",
+               backgroundPosition: "center",
+               height: "80vh",
+               width: "100%",
              }}
            >
              <form
                onSubmit={handleSubmit}
-               className="space-y-4 mt-12 text-center"
+               className="space-y-4 mt-12 text-center "
              >
-               <div className="space-y-4 mt-12 flex flex-row justify-between text-center">
-                 {/* Personal Information Section */}
-                 <div className="bg-slate-950 bg-opacity-40 rounded-lg ml-48 mt-2  ">
+               <div className="space-y-4 mt-12 flex flex-row flex-wrap ">
+                 <div className=" bg-slate-950 bg-opacity-40 rounded-lg mt-4 ml-10   md:w-1/2 lg:w-1/3">
                    <h1 className="text-white text-2xl font-semibold">
                      PERSONAL IMFORMATION
                    </h1>
-                   <div className="mt-4">
+                   <div className="mt-4 ">
                      <label htmlFor="fullName" className=" text-white">
                        Full Name
                      </label>
@@ -227,7 +225,7 @@
                      </div>
                    )}
                  </div>
-                 <div className="bg-slate-950  mr-60 bg-opacity-40 rounded-lg">
+                 <div className="bg-slate-950 bg-opacity-40 rounded-lg mb-6 ml-5 md:w-1/2 lg:w-1/3">
                    {/* Travel Information Section */}
                    <h6 className="text-white text-2xl font-semibold">
                      TRAVEL IMFORMATION
@@ -300,7 +298,7 @@
                    </div>
 
                    {/* Contact Information Section */}
-                   <h2 className="text-white text-2xl mb-2 font-semibold">
+                   <h2 className=" bg-slate-950 text-white text-2xl  bg-opacity-40 rounded-lg  ">
                      CONTACT IMFORMATION
                    </h2>
                    <div className="flex justify-between mr-5">
@@ -312,7 +310,9 @@
                        type="email"
                        id="email"
                        name="email"
-                       value={formData.email}
+
+                       value={this.state.email}
+                      
                        onChange={handleChange}
                        required
                      />
@@ -336,7 +336,7 @@
                <div className="">
                  <button
                    type="submit"
-                   className="bg-teal-900 hover:bg-teal-400 text-black h-10 font-bold w-80 mb-5 ml-2 rounded-md"
+                   className="bg-teal-900 hover:bg-teal-400 text-black mr-56 font-bold  md:w-80 rounded-md"
                  >
                    Submit
                  </button>
