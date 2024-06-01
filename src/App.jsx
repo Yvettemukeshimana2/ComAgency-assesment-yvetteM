@@ -118,227 +118,230 @@
            >
              <form
                onSubmit={handleSubmit}
-               className="space-y-4 mt-12 flex flex-row justify-between text-center"
+               className="space-y-4 mt-12 text-center"
              >
-               {/* Personal Information Section */}
-               <div className="bg-slate-950 bg-opacity-40 rounded-lg ml-48 mt-2  ">
-                 <h1 className="text-white text-2xl font-semibold">
-                   PERSONAL IMFORMATION
-                 </h1>
-                 <div className="mt-4">
-                   <label htmlFor="fullName" className=" text-white">
-                     Full Name
-                   </label>
-                   <input
-                     className="ml-2 w-60 rounded-md"
-                     type="text"
-                     id="fullName"
-                     name="fullName"
-                     value={formData.fullName}
-                     onChange={handleChange}
-                     required
-                   />
-                 </div>
-                 <div className="mt-4">
-                   <label htmlFor="age" className=" text-white">
-                     Age
-                   </label>
-                   <input
-                     className="ml-10 w-60 rounded-md"
-                     type="number"
-                     id="age"
-                     name="age"
-                     value={formData.age}
-                     onChange={handleChange}
-                     required
-                   />
-                 </div>
-                 <div className="mt-4">
-                   <label htmlFor="gender" className=" text-white">
-                     Gender
-                   </label>
-                   <select
-                     className="ml-4 w-60 rounded-md"
-                     id="gender"
-                     name="gender"
-                     value={formData.gender}
-                     onChange={handleChange}
-                     required
-                   >
-                     <option value="">Select Gender</option>
-                     <option value="Male">Male</option>
-                     <option value="Female">Female</option>
-                     <option value="Other">Other</option>
-                   </select>
-                 </div>
-                 <div className="mt-4 flex">
-                   <label htmlFor="nationality" className=" text-white">
-                     Nationality
-                   </label>
-                   <select
-                     className="ml-4 w-60 rounded-md"
-                     id="nationality"
-                     name="nationality"
-                     value={formData.nationality}
-                     onChange={handleChange}
-                     required
-                   >
-                     <option value="" className="text-black">
-                       Select Nationality
-                     </option>
-                     <option value="Local" className="text-black">
-                       Local
-                     </option>
-                     <option value="Foreign" className="text-black">
-                       Foreign
-                     </option>
-                   </select>
-                 </div>
-                 {formData.nationality === "Local" ? (
-                   <div className="mt-4 flex">
-                     <label htmlFor="nationalId" className=" text-white">
-                       National ID Number
+               <div className="space-y-4 mt-12 flex flex-row justify-between text-center">
+                 {/* Personal Information Section */}
+                 <div className="bg-slate-950 bg-opacity-40 rounded-lg ml-48 mt-2  ">
+                   <h1 className="text-white text-2xl font-semibold">
+                     PERSONAL IMFORMATION
+                   </h1>
+                   <div className="mt-4">
+                     <label htmlFor="fullName" className=" text-white">
+                       Full Name
                      </label>
                      <input
-                       className="ml-4 w-60 rounded-md"
+                       className="ml-2 w-60 rounded-md"
                        type="text"
-                       id="nationalId"
-                       name="nationalId"
-                       value={formData.nationalId}
+                       id="fullName"
+                       name="fullName"
+                       value={formData.fullName}
                        onChange={handleChange}
                        required
                      />
                    </div>
-                 ) : (
-                   <div className="mt-4 flex">
-                     <label htmlFor="passportNumber" className=" text-white">
-                       Passport Number
+                   <div className="mt-4">
+                     <label htmlFor="age" className=" text-white">
+                       Age
                      </label>
                      <input
-                       className="ml-4 w-60 rounded-md"
-                       type="text"
-                       id="passportNumber"
-                       name="passportNumber"
-                       value={formData.passportNumber}
+                       className="ml-10 w-60 rounded-md"
+                       type="number"
+                       id="age"
+                       name="age"
+                       value={formData.age}
                        onChange={handleChange}
                        required
                      />
                    </div>
-                 )}
-               </div>
-               <div className="bg-slate-950  mr-60 bg-opacity-40 rounded-lg">
-                 {/* Travel Information Section */}
-                 <h6 className="text-white text-2xl font-semibold">
-                   TRAVEL IMFORMATION
-                 </h6>
-                 <div className="flex justify-between mt-5 mr-5">
-                   <label htmlFor="purposeOfVisit" className="text-white ">
-                     Purpose of Visit
-                   </label>
-                   <select
-                     className="ml-4 w-60 rounded-md"
-                     id="purposeOfVisit"
-                     name="purposeOfVisit"
-                     value={formData.purposeOfVisit}
-                     onChange={handleChange}
-                     required
-                   >
-                     <option value="">Select Purpose</option>
-                     <option value="Tourism">Tourism</option>
-                     <option value="Business">Business</option>
-                     <option value="Education">Education</option>
-                     <option value="Other">Other</option>
-                   </select>
+                   <div className="mt-4">
+                     <label htmlFor="gender" className=" text-white">
+                       Gender
+                     </label>
+                     <select
+                       className="ml-4 w-60 rounded-md"
+                       id="gender"
+                       name="gender"
+                       value={formData.gender}
+                       onChange={handleChange}
+                       required
+                     >
+                       <option value="">Select Gender</option>
+                       <option value="Male">Male</option>
+                       <option value="Female">Female</option>
+                       <option value="Other">Other</option>
+                     </select>
+                   </div>
+                   <div className="mt-4 flex">
+                     <label htmlFor="nationality" className=" text-white">
+                       Nationality
+                     </label>
+                     <select
+                       className="ml-4 w-60 rounded-md"
+                       id="nationality"
+                       name="nationality"
+                       value={formData.nationality}
+                       onChange={handleChange}
+                       required
+                     >
+                       <option value="" className="text-black">
+                         Select Nationality
+                       </option>
+                       <option value="Local" className="text-black">
+                         Local
+                       </option>
+                       <option value="Foreign" className="text-black">
+                         Foreign
+                       </option>
+                     </select>
+                   </div>
+                   {formData.nationality === "Local" ? (
+                     <div className="mt-4 flex">
+                       <label htmlFor="nationalId" className=" text-white">
+                         National ID Number
+                       </label>
+                       <input
+                         className="ml-4 w-60 rounded-md"
+                         type="text"
+                         id="nationalId"
+                         name="nationalId"
+                         value={formData.nationalId}
+                         onChange={handleChange}
+                         required
+                       />
+                     </div>
+                   ) : (
+                     <div className="mt-4 flex">
+                       <label htmlFor="passportNumber" className=" text-white">
+                         Passport Number
+                       </label>
+                       <input
+                         className="ml-4 w-60 rounded-md"
+                         type="text"
+                         id="passportNumber"
+                         name="passportNumber"
+                         value={formData.passportNumber}
+                         onChange={handleChange}
+                         required
+                       />
+                     </div>
+                   )}
                  </div>
-                 <div className="flex mt-5 justify-between mr-5">
-                   <label htmlFor="durationOfStay" className="text-white ">
-                     Duration of Stay
-                   </label>
-                   <input
-                     className="ml-4 w-60 rounded-md"
-                     type="number"
-                     id="durationOfStay"
-                     name="durationOfStay"
-                     value={formData.durationOfStay}
-                     onChange={handleChange}
-                     required
-                   />
-                 </div>
-                 <div className="flex justify-between mt-5 mr-5">
-                   <label htmlFor="dateOfEntry" className="text-white ">
-                     Date of Entry
-                   </label>
-                   <input
-                     className="ml-4 w-60 rounded-md "
-                     type="date"
-                     id="dateOfEntry"
-                     name="dateOfEntry"
-                     value={formData.dateOfEntry}
-                     onChange={handleChange}
-                     required
-                   />
-                 </div>
-                 <div className="flex justify-between m-5">
-                   <label htmlFor="portOfEntry" className=" text-white">
-                     Port of Entry
-                   </label>
-                   <select
-                     className=" w-60 rounded-md ml-14"
-                     id="portOfEntry"
-                     name="portOfEntry"
-                     value={formData.portOfEntry}
-                     onChange={handleChange}
-                     required
-                   >
-                     <option value="">Select Port</option>
-                     <option value="Port A">Port A</option>
-                     <option value="Port B">Port B</option>
-                     <option value="Port C">Port C</option>
-                     <option value="Port D">Port D</option>
-                   </select>
-                 </div>
+                 <div className="bg-slate-950  mr-60 bg-opacity-40 rounded-lg">
+                   {/* Travel Information Section */}
+                   <h6 className="text-white text-2xl font-semibold">
+                     TRAVEL IMFORMATION
+                   </h6>
+                   <div className="flex justify-between mt-5 mr-5">
+                     <label htmlFor="purposeOfVisit" className="text-white ">
+                       Purpose of Visit
+                     </label>
+                     <select
+                       className="ml-4 w-60 rounded-md"
+                       id="purposeOfVisit"
+                       name="purposeOfVisit"
+                       value={formData.purposeOfVisit}
+                       onChange={handleChange}
+                       required
+                     >
+                       <option value="">Select Purpose</option>
+                       <option value="Tourism">Tourism</option>
+                       <option value="Business">Business</option>
+                       <option value="Education">Education</option>
+                       <option value="Other">Other</option>
+                     </select>
+                   </div>
+                   <div className="flex mt-5 justify-between mr-5">
+                     <label htmlFor="durationOfStay" className="text-white ">
+                       Duration of Stay
+                     </label>
+                     <input
+                       className="ml-4 w-60 rounded-md"
+                       type="number"
+                       id="durationOfStay"
+                       name="durationOfStay"
+                       value={formData.durationOfStay}
+                       onChange={handleChange}
+                       required
+                     />
+                   </div>
+                   <div className="flex justify-between mt-5 mr-5">
+                     <label htmlFor="dateOfEntry" className="text-white ">
+                       Date of Entry
+                     </label>
+                     <input
+                       className="ml-4 w-60 rounded-md "
+                       type="date"
+                       id="dateOfEntry"
+                       name="dateOfEntry"
+                       value={formData.dateOfEntry}
+                       onChange={handleChange}
+                       required
+                     />
+                   </div>
+                   <div className="flex justify-between m-5">
+                     <label htmlFor="portOfEntry" className=" text-white">
+                       Port of Entry
+                     </label>
+                     <select
+                       className=" w-60 rounded-md ml-14"
+                       id="portOfEntry"
+                       name="portOfEntry"
+                       value={formData.portOfEntry}
+                       onChange={handleChange}
+                       required
+                     >
+                       <option value="">Select Port</option>
+                       <option value="Port A">Port A</option>
+                       <option value="Port B">Port B</option>
+                       <option value="Port C">Port C</option>
+                       <option value="Port D">Port D</option>
+                     </select>
+                   </div>
 
-                 {/* Contact Information Section */}
-                 <h2 className="text-white text-2xl mb-2 font-semibold">
-                    CONTACT IMFORMATION
-                 </h2>
-                 <div className="flex justify-between mr-5">
-                   <label htmlFor="email" className="text-white ">
-                     Email Address
-                   </label>
-                   <input
-                     className="ml-4 w-60 rounded-md"
-                     type="email"
-                     id="email"
-                     name="email"
-                     value={formData.email}
-                     onChange={handleChange}
-                     required
-                   />
+                   {/* Contact Information Section */}
+                   <h2 className="text-white text-2xl mb-2 font-semibold">
+                     CONTACT IMFORMATION
+                   </h2>
+                   <div className="flex justify-between mr-5">
+                     <label htmlFor="email" className="text-white ">
+                       Email Address
+                     </label>
+                     <input
+                       className="ml-4 w-60 rounded-md"
+                       type="email"
+                       id="email"
+                       name="email"
+                       value={formData.email}
+                       onChange={handleChange}
+                       required
+                     />
+                   </div>
+                   <div className="flex justify-between mt-4 mb-8 mr-5">
+                     <label htmlFor="phoneNumber" className="text-white ">
+                       Phone Number
+                     </label>
+                     <input
+                       className="ml-4 w-60 rounded-md"
+                       type="text"
+                       id="phoneNumber"
+                       name="phoneNumber"
+                       value={formData.phoneNumber}
+                       onChange={handleChange}
+                       required
+                     />
+                   </div>
                  </div>
-                 <div className="flex justify-between mt-4 mb-8 mr-5">
-                   <label htmlFor="phoneNumber" className="text-white ">
-                     Phone Number
-                   </label>
-                   <input
-                     className="ml-4 w-60 rounded-md"
-                     type="text"
-                     id="phoneNumber"
-                     name="phoneNumber"
-                     value={formData.phoneNumber}
-                     onChange={handleChange}
-                     required
-                   />
-                 </div>
+               </div>
+               <div className="">
+                 <button
+                   type="submit"
+                   className="bg-teal-900 hover:bg-teal-400 text-black h-10 font-bold w-80 mb-5 ml-2 rounded-md"
+                 >
+                   Submit
+                 </button>
                </div>
              </form>
-
-             <button
-               type="submit"
-               className="bg-yellow-200 hover:bg-teal-900 text-black h-10 font-bold w-80 mt-2 ml-96 rounded-md"
-             >
-               Submit
-             </button>
            </div>
          </div>
        </div>
