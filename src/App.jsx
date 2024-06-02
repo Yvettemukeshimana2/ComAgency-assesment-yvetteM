@@ -52,68 +52,71 @@
      return /^[A-Za-z0-9]{6,9}$/.test(passportNumber);
    };
 
-   const handleSubmit = async (e) => {
-     e.preventDefault();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-     if (!validateEmail(formData.emailAddress)) {
-       alert("Invalid email format");
-       return;
-     }
+      if (!validateEmail(formData.emailAddress)) {
+        alert("Invalid email format");
+        return;
+      }
 
-     if (!validatePhoneNumber(formData.phoneNumber)) {
-       alert("Phone number should be numeric and at least 10 digits");
-       return;
-     }
+      if (!validatePhoneNumber(formData.phoneNumber)) {
+        alert("Phone number should be numeric and at least 10 digits");
+        return;
+      }
 
-     if (!validateAge(formData.age)) {
-       alert("Age should be a number between 0 and 120");
-       return;
-     }
+      if (!validateAge(formData.age)) {
+        alert("Age should be a number between 0 and 120");
+        return;
+      }
 
-     if (!validateDateOfEntry(formData.dateOfEntry)) {
-       alert("Date of Entry should not be in the future");
-       return;
-     }
+      if (!validateDateOfEntry(formData.dateOfEntry)) {
+        alert("Date of Entry should not be in the future");
+        return;
+      }
 
-     if (
-       formData.nationality === "Local" &&
-       !validateNationalId(formData.nationalId)
-     ) {
-       alert(
-         "National ID should be alphanumeric and between 6 to 12 characters"
-       );
-       return;
-     }
+      if (
+        formData.nationality === "Local" &&
+        !validateNationalId(formData.nationalId)
+      ) {
+        alert(
+          "National ID should be alphanumeric and between 6 to 12 characters"
+        );
+        return;
+      }
 
-     if (
-       formData.nationality === "Foreign" &&
-       !validatePassportNumber(formData.passportNumber)
-     ) {
-       alert(
-         "Passport Number should be alphanumeric and between 6 to 9 characters"
-       );
-       return;
-     }
+      if (
+        formData.nationality === "Foreign" &&
+        !validatePassportNumber(formData.passportNumber)
+      ) {
+        alert(
+          "Passport Number should be alphanumeric and between 6 to 9 characters"
+        );
+        return;
+      }
 
-     // Submit form data
-     try {
-       const response = await fetch(
-         "https://comagency-assesmentyvette-serverside.onrender.com/api/v1/create-customer",
-         {
-           method: "POST",
-           headers: {
-             "Content-Type": "application/json",
-           },
-           body: JSON.stringify(formData),
-         }
-       );
+      // Submit form data
+      try {
+        const response = await fetch(
+          "https://comagency-assesmentyvette-serverside.onrender.com/api/v1/create-customer",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
-       const result = await response.json();
-       alert(JSON.stringify(result)); // Convert the result object to a string
-     } catch (error) {
-       alert("Error: " + error);
-     }
-   };
+        if (response.ok) {
+          alert("Customer created successfully!");
+        } else {
+          alert("Failed to create customer. Please try again.");
+        }
+      } catch (error) {
+        alert("An error occurred. Please try again.");
+      }
+    };
 
 
    return (
