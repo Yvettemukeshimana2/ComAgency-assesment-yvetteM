@@ -49,8 +49,8 @@
    }
 
    return (
-     <div className="container mx-auto mt-10">
-       <h2 className="text-3xl font-bold text-center mb-4">
+     <div className="container mx-auto mt-10 bg-slate-700">
+       <h2 className="text-3xl font-bold text-center mb-4 h-20 text-white  ">
          Customer Information
        </h2>
        <table className=" text-xs border-collapse border bg-opacity-55 bg-lime-600">
