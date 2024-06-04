@@ -153,7 +153,7 @@
                  {/* Delete button */}
                  <button
                    onClick={() => handleDelete(customer._id)}
-                   className="bg-slate-950 w-20 text-white px-3 py-1 mr-96 rounded"
+                   className="bg-slate-700 h-7 mt-3 w-20 text-white px-3 py-1 mr-96 rounded"
                  >
                    Delete
                  </button>
