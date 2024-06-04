@@ -1,11 +1,8 @@
  import React, { useState } from "react";
  import border from "../images/th.jpg";
  import { Link } from "react-router-dom";
- import Customer from "./Customer";
 
- // Main form component
  const Form = () => {
-   // State to hold form data
    const [formData, setFormData] = useState({
      fullName: "",
      age: "",
@@ -21,7 +18,6 @@
      phoneNumber: "",
    });
 
-   // Function to handle input changes and update state
    const handleChange = (e) => {
      const { name, value } = e.target;
      setFormData({
@@ -30,44 +26,36 @@
      });
    };
 
-   // Email validation function
    const validateEmail = (email) => {
      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
      return re.test(email);
    };
 
-   // Phone number validation function
    const validatePhoneNumber = (phoneNumber) => {
-     return /^\d{10,}$/.test(phoneNumber); // Ensure it has at least 10 digits
+     return /^\d{10,}$/.test(phoneNumber);
    };
 
-   // Age validation function
    const validateAge = (age) => {
-     return age >= 0 && age <= 120; // Age should be between 0 and 120
+     return age >= 0 && age <= 120;
    };
 
-   // Date of entry validation function
    const validateDateOfEntry = (date) => {
      const today = new Date();
      const entryDate = new Date(date);
-     return entryDate <= today; // Entry date should not be in the future
+     return entryDate <= today;
    };
 
-   // National ID validation function
    const validateNationalId = (nationalId) => {
-     return /^[A-Za-z0-9]{6,12}$/.test(nationalId); // Alphanumeric and 6-12 characters
+     return /^[A-Za-z0-9]{6,12}$/.test(nationalId);
    };
 
-   // Passport number validation function
    const validatePassportNumber = (passportNumber) => {
-     return /^[A-Za-z0-9]{6,9}$/.test(passportNumber); // Alphanumeric and 6-9 characters
+     return /^[A-Za-z0-9]{6,9}$/.test(passportNumber);
    };
 
-   // Function to handle form submission
    const handleSubmit = async (e) => {
-     e.preventDefault(); // Prevent default form submission behavior
+     e.preventDefault();
 
-     // Perform validation checks before submission
      if (!validateEmail(formData.emailAddress)) {
        alert("Invalid email format");
        return;
@@ -108,7 +96,6 @@
        return;
      }
 
-     // Submit form data to the API
      try {
        const response = await fetch(
          "https://comagency-assesmentyvette-serverside.onrender.com/api/v1/create-customer",
@@ -122,54 +109,52 @@
        );
 
        if (response.ok) {
-         alert("Customer created successfully!"); // Success message
+         alert("Customer created successfully!");
        } else {
-         alert("Failed to create customer. Please try again."); // Failure message
+         alert("Failed to create customer. Please try again.");
        }
      } catch (error) {
-       alert("An error occurred. Please try again."); // Error message
+       alert("An error occurred. Please try again.");
      }
    };
 
    return (
-     <div className="container mx-auto">
-       <div className="rounded-lg flex flex-col">
-         <div className="bg-slate-950">
-           <div className="flex justify-between ">
-             <h1 className="text-4xl font-bold text-center mt-10 ml-80 text-white">
-               Customs Form
-             </h1>
-             <Link to="/customer">
-               <div className="text-xl rounded-3xl bg-lime-800 w-72 h-10  font-bold text-center mt-12 hover:bg-lime-500  mr-40 text-white ">
-                 CUSTOMER_INFORMATION
-               </div>
-             </Link>
-           </div>
-           <div
-             style={{
-               backgroundImage: `url(${border})`,
-               backgroundSize: "cover",
-               backgroundPosition: "center",
-               height: "80vh",
-               width: "100%",
-             }}
-           >
-             <form
-               onSubmit={handleSubmit}
-               className="space-y-4 mt-12 text-center"
-             >
-               <div className="space-y-4 mt-12 flex flex-row flex-wrap">
-                 {/* Personal Information Section */}
-                 <div className="bg-slate-950 bg-opacity-65 rounded-lg mt-4 ml-10 md:w-1/2 lg:w-1/3">
-                   <h1 className="text-white text-2xl font-semibold">
-                     PERSONAL INFORMATION
-                   </h1>
-                   <div className="mt-4 ">
-                     <label htmlFor="fullName" className="text-white -ml-16">
+     <div className="container mx-auto p-4">
+       <div className="rounded-lg flex flex-col bg-slate-950 p-4">
+         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+           <h1 className="text-4xl font-bold text-center text-white mb-4 md:mb-0 md:text-left">
+             Customs Form
+           </h1>
+           <Link to="/customer">
+             <div className="text-xl rounded-3xl bg-lime-800 w-full md:w-72 h-10 font-bold text-center py-2 hover:bg-lime-500 text-white">
+               CUSTOMER_INFORMATION
+             </div>
+           </Link>
+         </div>
+         <div
+           style={{
+             backgroundImage: `url(${border})`,
+             backgroundSize: "cover",
+             backgroundPosition: "center",
+             height: "auto",
+             width: "100%",
+           }}
+           className="p-4 rounded-lg bg-opacity-75"
+         >
+           <form onSubmit={handleSubmit} className="space-y-4 text-center">
+             <div className="flex flex-col md:flex-row md: md:space-x-4">
+               {/* Personal Information Section */}
+               <div className="bg-slate-950 bg-opacity-75 rounded-lg p-4 mb-4 md:w-full lg:w-1/3">
+                 <h2 className="text-white text-2xl font-semibold mb-4">
+                   PERSONAL INFORMATION
+                 </h2>
+                 <div className="flex flex-col space-y-4">
+                   <div className="flex flex-col">
+                     <label htmlFor="fullName" className="text-white">
                        Full Name
                      </label>
                      <input
-                       className="ml-5 w-60 rounded-md  bg-gray-400 "
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="text"
                        id="fullName"
                        name="fullName"
@@ -178,12 +163,12 @@
                        required
                      />
                    </div>
-                   <div className="mt-4">
-                     <label htmlFor="age" className="text-white -ml-12">
+                   <div className="flex flex-col">
+                     <label htmlFor="age" className="text-white">
                        Age
                      </label>
                      <input
-                       className="ml-14 w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="number"
                        id="age"
                        name="age"
@@ -192,12 +177,12 @@
                        required
                      />
                    </div>
-                   <div className="mt-4">
-                     <label htmlFor="gender" className="text-white -ml-16">
+                   <div className="flex flex-col">
+                     <label htmlFor="gender" className="text-white">
                        Gender
                      </label>
                      <select
-                       className="ml-12 w-60 rounded-md bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        id="gender"
                        name="gender"
                        value={formData.gender}
@@ -210,37 +195,30 @@
                        <option value="Other">Other</option>
                      </select>
                    </div>
-                   <div className="mt-4 flex">
+                   <div className="flex flex-col">
                      <label htmlFor="nationality" className="text-white">
                        Nationality
                      </label>
                      <select
-                       className="ml-8 w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        id="nationality"
                        name="nationality"
                        value={formData.nationality}
                        onChange={handleChange}
                        required
                      >
-                       <option value="" className="text-black">
-                         Select Nationality
-                       </option>
-                       <option value="Local" className="text-black">
-                         Local
-                       </option>
-                       <option value="Foreign" className="text-black">
-                         Foreign
-                       </option>
+                       <option value="">Select Nationality</option>
+                       <option value="Local">Local</option>
+                       <option value="Foreign">Foreign</option>
                      </select>
                    </div>
-                   {/* Conditional rendering for National ID or Passport Number */}
                    {formData.nationality === "Local" ? (
-                     <div className="mt-4 flex">
+                     <div className="flex flex-col">
                        <label htmlFor="nationalId" className="text-white">
-                         National_ID_Number
+                         National ID Number
                        </label>
                        <input
-                         className="ml-4 w-60 rounded-md  bg-gray-400"
+                         className="w-full rounded-md bg-gray-400 p-2"
                          type="text"
                          id="nationalId"
                          name="nationalId"
@@ -250,12 +228,12 @@
                        />
                      </div>
                    ) : (
-                     <div className="mt-4 flex">
+                     <div className="flex flex-col">
                        <label htmlFor="passportNumber" className="text-white">
-                         Passport_Number
+                         Passport Number
                        </label>
                        <input
-                         className="ml-4 w-60 rounded-md  bg-gray-400"
+                         className="w-full rounded-md bg-gray-400 p-2"
                          type="text"
                          id="passportNumber"
                          name="passportNumber"
@@ -266,17 +244,19 @@
                      </div>
                    )}
                  </div>
-                 {/* Travel Information Section */}
-                 <div className="bg-slate-950 bg-opacity-65 rounded-lg  mb-6 ml-10 mr-10 md:w-1/2 lg:w-1/3">
-                   <h6 className="text-white text-2xl font-semibold">
-                     TRAVEL INFORMATION
-                   </h6>
-                   <div className="flex justify-between mt-5 ml-5 mr-5">
+               </div>
+               {/* Travel Information Section */}
+               <div className="bg-slate-950 bg-opacity-75 rounded-lg p-4 mb-4 md:w-full lg:w-1/3">
+                 <h2 className="text-white text-2xl font-semibold mb-4">
+                   TRAVEL INFORMATION
+                 </h2>
+                 <div className="flex flex-col space-y-4">
+                   <div className="flex flex-col">
                      <label htmlFor="purposeOfVisit" className="text-white">
                        Purpose of Visit
                      </label>
                      <select
-                       className="ml-4 w-60 rounded-md bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        id="purposeOfVisit"
                        name="purposeOfVisit"
                        value={formData.purposeOfVisit}
@@ -290,12 +270,12 @@
                        <option value="Employment">Employment</option>
                      </select>
                    </div>
-                   <div className="flex justify-between mt-5 ml-5 mr-5">
+                   <div className="flex flex-col">
                      <label htmlFor="durationOfStay" className="text-white">
                        Duration of Stay
                      </label>
                      <input
-                       className="ml-4 w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="number"
                        id="durationOfStay"
                        name="durationOfStay"
@@ -304,12 +284,12 @@
                        required
                      />
                    </div>
-                   <div className="flex justify-between mt-5  ml-5  mr-5">
+                   <div className="flex flex-col">
                      <label htmlFor="dateOfEntry" className="text-white">
                        Date of Entry
                      </label>
                      <input
-                       className="ml-4 w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="date"
                        id="dateOfEntry"
                        name="dateOfEntry"
@@ -318,15 +298,12 @@
                        required
                      />
                    </div>
-                   <div className="flex justify-between ml-5  m-5">
-                     <label
-                       htmlFor="portOfEntry"
-                       className=" text-white w-40 -ml-3"
-                     >
+                   <div className="flex flex-col">
+                     <label htmlFor="portOfEntry" className="text-white">
                        Port of Entry
                      </label>
                      <select
-                       className=" w-72 rounded-md ml-14  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        id="portOfEntry"
                        name="portOfEntry"
                        value={formData.portOfEntry}
@@ -340,16 +317,20 @@
                        <option value="Port D">Rusumo</option>
                      </select>
                    </div>
-                   {/* Contact Information Section */}
-                   <h6 className="text-white text-2xl font-semibold">
-                     CONTACT INFORMATION
-                   </h6>
-                   <div className="flex justify-between ml-5 m-5">
-                     <label htmlFor="email" className="text-white ml-2">
-                       Emailaddress
+                 </div>
+               </div>
+               {/* Contact Information Section */}
+               <div className="bg-slate-950 bg-opacity-75 rounded-lg p-4 mb-4 md:w-full lg:w-1/3">
+                 <h2 className="text-white text-2xl font-semibold mb-4">
+                   CONTACT INFORMATION
+                 </h2>
+                 <div className="flex flex-col space-y-4">
+                   <div className="flex flex-col">
+                     <label htmlFor="emailAddress" className="text-white">
+                       Email Address
                      </label>
                      <input
-                       className="w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="email"
                        id="emailAddress"
                        name="emailAddress"
@@ -358,12 +339,12 @@
                        required
                      />
                    </div>
-                   <div className="flex justify-between ml-5  m-5">
-                     <label htmlFor="phoneNumber" className="text-white ml-2">
+                   <div className="flex flex-col">
+                     <label htmlFor="phoneNumber" className="text-white">
                        Phone Number
                      </label>
                      <input
-                       className="w-60 rounded-md  bg-gray-400"
+                       className="w-full rounded-md bg-gray-400 p-2"
                        type="text"
                        id="phoneNumber"
                        name="phoneNumber"
@@ -374,15 +355,15 @@
                    </div>
                  </div>
                </div>
-               {/* Submit button */}
-               <button
-                 type="submit"
-                 className="bg-lime-800 hover:bg-lime-500  mr-80  mb-5 w-32 text-white font-bold  md:w-48 h-10 rounded-md"
-               >
-                 Submit
-               </button>
-             </form>
-           </div>
+             </div>
+             {/* Submit button */}
+             <button
+               type="submit"
+               className="bg-lime-800 hover:bg-lime-500 w-full md:w-48 h-10 rounded-md text-white font-bold mt-4"
+             >
+               Submit
+             </button>
+           </form>
          </div>
        </div>
      </div>
