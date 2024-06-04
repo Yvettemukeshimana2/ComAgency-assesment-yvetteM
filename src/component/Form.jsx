@@ -8,8 +8,8 @@
      age: "",
      gender: "",
      nationality: "",
-     nationalId: "",
-     passportNumber: "",
+     identification: "",
+     passport: "",
      purposeOfVisit: "",
      durationOfStay: "",
      dateOfEntry: "",
@@ -45,12 +45,12 @@
      return entryDate <= today;
    };
 
-   const validateNationalId = (nationalId) => {
-     return /^[A-Za-z0-9]{6,12}$/.test(nationalId);
+   const validateNationalId = (identification) => {
+     return /^[A-Za-z0-9]{6,12}$/.test(identification);
    };
 
-   const validatePassportNumber = (passportNumber) => {
-     return /^[A-Za-z0-9]{6,9}$/.test(passportNumber);
+   const validatePassportNumber = (passport) => {
+     return /^[A-Za-z0-9]{6,9}$/.test(passport);
    };
 
    const handleSubmit = async (e) => {
@@ -78,7 +78,7 @@
 
      if (
        formData.nationality === "Local" &&
-       !validateNationalId(formData.nationalId)
+       !validateNationalId(formData.identification)
      ) {
        alert(
          "National ID should be alphanumeric and between 6 to 12 characters"
@@ -88,7 +88,7 @@
 
      if (
        formData.nationality === "Foreign" &&
-       !validatePassportNumber(formData.passportNumber)
+       !validatePassportNumber(formData.passport)
      ) {
        alert(
          "Passport Number should be alphanumeric and between 6 to 9 characters"
@@ -220,9 +220,9 @@
                        <input
                          className="w-full rounded-md bg-gray-400 p-2"
                          type="text"
-                         id="nationalId"
-                         name="nationalId"
-                         value={formData.nationalId}
+                         id="identification"
+                         name="identification"
+                         value={formData.identification}
                          onChange={handleChange}
                          required
                        />
@@ -235,9 +235,9 @@
                        <input
                          className="w-full rounded-md bg-gray-400 p-2"
                          type="text"
-                         id="passportNumber"
-                         name="passportNumber"
-                         value={formData.passportNumber}
+                         id="passport"
+                         name="passport"
+                         value={formData.passport}
                          onChange={handleChange}
                          required
                        />
